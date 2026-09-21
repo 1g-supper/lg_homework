@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="轻记账小程序界面示意图">
+  <rect width="800" height="600" fill="#F7F3ED"/>
+  <!-- 手机外壳 -->
+  <rect x="250" y="40" width="300" height="520" rx="28" fill="#FCFAF6" stroke="#444444" stroke-width="2"/>
+  <!-- 状态栏 -->
+  <line x1="250" y1="86" x2="550" y2="86" stroke="#444444" stroke-width="1" opacity="0.4"/>
+  <!-- 余额卡 -->
+  <rect x="278" y="110" width="244" height="96" rx="10" fill="#D88A94" opacity="0.18" stroke="#D88A94" stroke-width="1.5"/>
+  <text x="296" y="140" font-family="sans-serif" font-size="14" fill="#8C2C2C">本月支出</text>
+  <text x="296" y="176" font-family="sans-serif" font-size="26" font-weight="700" fill="#8C2C2C">¥ 1,286.50</text>
+  <!-- 语音记账按钮 -->
+  <circle cx="400" cy="240" r="22" fill="#8C2C2C"/>
+  <path d="M390 240h20M400 230v20" stroke="#F7F3ED" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="400" y="290" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#444444">轻触 · 语音记账</text>
+  <!-- 柱状图 -->
+  <g stroke="#8C2C2C" stroke-width="2">
+    <line x1="285" y1="400" x2="515" y2="400"/>
+  </g>
+  <g fill="#D88A94">
+    <rect x="300" y="360" width="24" height="40" rx="2"/>
+    <rect x="340" y="332" width="24" height="68" rx="2"/>
+    <rect x="380" y="346" width="24" height="54" rx="2"/>
+    <rect x="420" y="316" width="24" height="84" rx="2"/>
+    <rect x="460" y="352" width="24" height="48" rx="2"/>
+  </g>
+  <g font-family="sans-serif" font-size="12" fill="#444444" text-anchor="middle">
+    <text x="312" y="420">一</text>
+    <text x="352" y="420">二</text>
+    <text x="392" y="420">三</text>
+    <text x="432" y="420">四</text>
+    <text x="472" y="420">五</text>
+  </g>
+  <!-- 底部导航 -->
+  <line x1="250" y1="500" x2="550" y2="500" stroke="#444444" stroke-width="1" opacity="0.35"/>
+  <g font-family="sans-serif" font-size="12" fill="#8C2C2C" text-anchor="middle">
+    <text x="308" y="530">明细</text>
+    <text x="400" y="530">统计</text>
+    <text x="492" y="530">我的</text>
+  </g>
+  <text x="400" y="572" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#444444">预算提醒 · 月度收支</text>
+</svg>

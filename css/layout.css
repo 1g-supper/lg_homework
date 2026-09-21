@@ -1,0 +1,333 @@
+/* ==========================================================================
+   layout.css —— 左右分区布局 + 响应式断点（阶段② frontend-design 落地）
+   桌面：左窄栏 sticky 固定 + 右主区独立滚动
+   移动：单列上下流式 + 顶部汉堡抽屉
+   ========================================================================== */
+
+/* ---- 背景装饰层 ---- */
+.bg-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(rgba(140, 44, 44, 0.3) 1px, transparent 1.4px),
+    radial-gradient(rgba(216, 138, 148, 0.28) 1px, transparent 1.5px),
+    var(--pattern-seigaiha),
+    var(--pattern-wave),
+    var(--pattern-cloud),
+    var(--glow-deep),
+    var(--glow-sakura);
+  background-repeat: repeat, repeat, repeat, repeat, repeat, no-repeat, no-repeat;
+  background-size: 42px 42px, 26px 26px, 80px 40px, 120px 24px, 140px 40px, 100% 100%, 100% 100%;
+  background-position: 0 0, 13px 21px, 0 0, 0 0, 0 0, 0 0, 0 0;
+  opacity: 0.17;
+}
+/* 四角樱花纹样（角标簇，低透明，不遮挡正文） */
+.bg-scene::before,
+.bg-scene::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.55;
+}
+.bg-scene::before {
+  top: 18px;
+  right: 18px;
+  width: 60px;
+  height: 60px;
+  background-image: var(--icon-sakura), var(--icon-sakura), var(--icon-sakura);
+  background-size: 22px 22px, 13px 13px, 34px 34px;
+  background-repeat: no-repeat;
+  background-position: 8px 34px, 34px 40px, 20px 2px;
+  transform: rotate(8deg);
+}
+.bg-scene::after {
+  left: 22px;
+  bottom: 18px;
+  width: 60px;
+  height: 60px;
+  background-image: var(--icon-sakura), var(--icon-sakura);
+  background-size: 26px 26px, 15px 15px;
+  background-repeat: no-repeat;
+  background-position: 4px 32px, 36px 6px;
+  transform: rotate(-10deg);
+}
+
+/* ---- 页面四角折角框（日式屏风感） ---- */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  pointer-events: none;
+  opacity: 0.5;
+}
+body::before {
+  top: 12px;
+  left: 12px;
+  border-top: 2px solid var(--accent-deep);
+  border-left: 2px solid var(--accent-deep);
+  border-top-left-radius: 6px;
+}
+body::after {
+  right: 12px;
+  bottom: 12px;
+  border-right: 2px solid var(--accent-deep);
+  border-bottom: 2px solid var(--accent-deep);
+  border-bottom-right-radius: 6px;
+}
+
+/* ---- 桌面左右布局 ---- */
+.layout {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ---- 左侧固定栏 ---- */
+.sidebar {
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  flex: 0 0 var(--sidebar-w);
+  width: var(--sidebar-w);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 56px 40px 36px;
+  background: rgba(252, 250, 246, 0.55);
+  border-right: 2px solid var(--accent-deep);
+  box-shadow: inset -1px 0 0 var(--line), 1px 0 24px rgba(140, 44, 44, 0.06);
+}
+.sidebar::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: -8px;
+  bottom: 12px;
+  width: 1px;
+  background: linear-gradient(to bottom,
+    transparent,
+    var(--accent) 12%,
+    var(--accent) 88%,
+    transparent);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.sidebar-inner {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  position: relative;
+}
+/* 侧栏左上折角 */
+.sidebar-inner::before {
+  content: "";
+  position: absolute;
+  top: -36px;
+  left: -20px;
+  width: 30px;
+  height: 30px;
+  border-top: 2px solid var(--accent-deep);
+  border-left: 2px solid var(--accent-deep);
+  border-top-left-radius: 5px;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* ---- 右侧主滚动区 ---- */
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: clamp(48px, 7vw, 110px) var(--gutter) 40px;
+  position: relative;
+}
+/* 主区边缘装饰：顶部樱花饰带 + 底部细线 */
+.main::before,
+.main::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  opacity: 0.45;
+  pointer-events: none;
+}
+.main::before {
+  top: 0;
+  height: 28px;
+  background-image:
+    var(--icon-sakura),
+    linear-gradient(to right, transparent, var(--accent) 18%, var(--accent) 82%, transparent);
+  background-size: 15px 15px, 100% 2px;
+  background-repeat: no-repeat, no-repeat;
+  background-position: calc(100% - 24px) 4px, 0 26px;
+}
+.main::after {
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(to right,
+    transparent,
+    var(--accent) 18%,
+    var(--accent) 82%,
+    transparent);
+}
+
+/* ---- 模块通用 ---- */
+.section {
+  margin-top: clamp(72px, 10vw, 130px);
+}
+
+/* ---- 移动端顶栏与抽屉（默认隐藏，<768px 显示） ---- */
+.topbar,
+.drawer,
+.drawer-backdrop {
+  display: none;
+}
+
+/* ==========================================================================
+   响应式断点
+   ========================================================================== */
+
+/* 平板及以下：< 768px 切换为单列流式 + 抽屉导航 */
+@media (max-width: 767.98px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  /* 顶栏 */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    height: 56px;
+    padding: 0 16px;
+    background: rgba(247, 243, 237, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .topbar__brand {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--ink);
+  }
+
+  .menu-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px 8px;
+  }
+  .menu-btn__line {
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+    transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+  }
+  .menu-btn.is-open .menu-btn__line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .menu-btn.is-open .menu-btn__line:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-btn.is-open .menu-btn__line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* 抽屉 */
+  .drawer-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 45;
+    background: rgba(34, 34, 34, 0.35);
+    opacity: 0;
+    transition: opacity var(--dur) var(--ease);
+  }
+  .drawer-backdrop.is-visible {
+    opacity: 1;
+  }
+
+  .drawer {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+    width: min(78vw, 300px);
+    padding: 48px 28px;
+    background: var(--bg-card);
+    border-right: 1px solid var(--line);
+    transform: translateX(-100%);
+    transition: transform 0.4s var(--ease);
+  }
+  .drawer.is-open {
+    transform: translateX(0);
+  }
+
+  .drawer__name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: block;
+  }
+  .drawer__tagline {
+    display: block;
+    margin-top: 6px;
+    font-size: var(--fs-meta);
+    color: var(--ink-muted);
+  }
+  .drawer__nav {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .drawer__nav a {
+    display: block;
+    padding: 10px 4px;
+    font-size: 1.05rem;
+    color: var(--ink);
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  /* 侧栏在移动端隐藏（内容移至抽屉/主区） */
+  .sidebar {
+    display: none;
+  }
+
+  /* 页面四角折角框移动端隐藏，避免挤压内容 */
+  body::before,
+  body::after {
+    display: none;
+  }
+
+  /* Hero 明神门角落装饰移动端缩小淡化 */
+  .torii-mark--hero {
+    width: 84px;
+    height: 108px;
+    opacity: 0.22;
+    bottom: 42px;
+  }
+
+  /* 主区单列流式 */
+  .main {
+    padding: 40px 20px 40px;
+  }
+
+  .section {
+    margin-top: 72px;
+  }
+}

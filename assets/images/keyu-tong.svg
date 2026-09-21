@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="课语通 AI 课程问答助手界面示意图">
+  <rect width="800" height="600" fill="#F7F3ED"/>
+  <!-- 顶栏 -->
+  <rect x="40" y="30" width="720" height="60" rx="8" fill="#FCFAF6" stroke="#444444" stroke-width="1.5"/>
+  <circle cx="78" cy="60" r="14" fill="#D88A94"/>
+  <text x="78" y="65" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#F7F3ED">AI</text>
+  <text x="106" y="66" font-family="sans-serif" font-size="18" font-weight="700" fill="#222222">课语通 · 课程问答助手</text>
+  <text x="700" y="66" text-anchor="end" font-family="sans-serif" font-size="13" fill="#8C2C2C">知识索引已就绪</text>
+
+  <!-- 用户问题 -->
+  <rect x="300" y="130" width="420" height="52" rx="10" fill="#8C2C2C"/>
+  <text x="320" y="160" font-family="sans-serif" font-size="14" fill="#F7F3ED">请解释归并排序的时间复杂度推导</text>
+
+  <!-- AI 回答 -->
+  <rect x="80" y="210" width="520" height="150" rx="10" fill="#FCFAF6" stroke="#D88A94" stroke-width="1.5"/>
+  <text x="104" y="238" font-family="sans-serif" font-size="13" font-weight="700" fill="#8C2C2C">回答</text>
+  <text x="104" y="266" font-family="sans-serif" font-size="14" fill="#222222">归并排序采用分治策略，将序列反复对半划分，</text>
+  <text x="104" y="292" font-family="sans-serif" font-size="14" fill="#222222">共 log₂n 层，每层合并耗时 O(n)，因此总时间</text>
+  <text x="104" y="318" font-family="sans-serif" font-size="14" fill="#222222">复杂度为 O(n log n)，空间复杂度为 O(n)。</text>
+  <text x="104" y="348" font-family="sans-serif" font-size="12" fill="#8C2C2C">引用出处：数据结构 · 第 8 章 P186</text>
+
+  <!-- 知识点小测 -->
+  <rect x="420" y="400" width="340" height="140" rx="10" fill="#FCFAF6" stroke="#444444" stroke-width="1.2"/>
+  <text x="444" y="430" font-family="sans-serif" font-size="13" font-weight="700" fill="#8C2C2C">知识点小测</text>
+  <text x="444" y="458" font-family="sans-serif" font-size="14" fill="#222222">Q：快速排序最坏情况是？</text>
+  <text x="444" y="486" font-family="sans-serif" font-size="13" fill="#444444">A. O(n log n)   B. O(n²)   C. O(n)</text>
+  <rect x="444" y="498" width="86" height="28" rx="6" fill="#D88A94"/>
+  <text x="487" y="517" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#F7F3ED">开始作答</text>
+
+  <!-- 左侧：资料上传 -->
+  <rect x="80" y="400" width="300" height="140" rx="10" fill="#FCFAF6" stroke="#444444" stroke-width="1.2"/>
+  <text x="104" y="430" font-family="sans-serif" font-size="13" font-weight="700" fill="#8C2C2C">课程资料</text>
+  <rect x="104" y="446" width="252" height="34" rx="6" fill="#F7F3ED" stroke="#D88A94" stroke-width="1.2"/>
+  <text x="122" y="468" font-family="sans-serif" font-size="13" fill="#444444">📄 数据结构讲义.pdf</text>
+  <rect x="104" y="488" width="252" height="34" rx="6" fill="#F7F3ED" stroke="#D88A94" stroke-width="1.2"/>
+  <text x="122" y="510" font-family="sans-serif" font-size="13" fill="#444444">📄 算法导论重点摘录.md</text>
+
+  <!-- 底部输入 -->
+  <rect x="120" y="570" width="500" height="20" rx="10" fill="#FCFAF6" stroke="#444444" stroke-width="1.2"/>
+  <text x="140" y="584" font-family="sans-serif" font-size="12" fill="#444444" opacity="0.7">输入你的课程问题…</text>
+  <circle cx="640" cy="580" r="16" fill="#8C2C2C"/>
+  <path d="M633 580l8 6 8-6M641 586v-12" stroke="#F7F3ED" stroke-width="2" fill="none" stroke-linecap="round"/>
+</svg>

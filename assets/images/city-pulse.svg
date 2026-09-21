@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="城市脉搏交通天气数据大屏示意图">
+  <rect width="800" height="600" fill="#F7F3ED"/>
+  <!-- 大屏标题 -->
+  <text x="400" y="58" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="#8C2C2C">城市脉搏 · 运行监测</text>
+  <text x="400" y="84" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#444444">交通 / 天气 / 城市运行 多数据源轮询聚合</text>
+  <line x1="200" y1="100" x2="600" y2="100" stroke="#8C2C2C" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- 左侧：交通热力地图 -->
+  <rect x="40" y="130" width="360" height="300" rx="8" fill="#FCFAF6" stroke="#444444" stroke-width="1.5"/>
+  <text x="62" y="160" font-family="sans-serif" font-size="15" font-weight="700" fill="#222222">实时交通</text>
+  <!-- 城市道路 -->
+  <g stroke="#D88A94" stroke-width="6" opacity="0.6" fill="none" stroke-linecap="round">
+    <path d="M60 220h320M60 260h320M60 300h320M130 150v260M230 150v260M330 150v260"/>
+  </g>
+  <!-- 拥堵路段（暗赤红） -->
+  <g stroke="#8C2C2C" stroke-width="7" opacity="0.85" fill="none" stroke-linecap="round">
+    <path d="M160 218h120M240 150v110"/>
+  </g>
+  <!-- 车辆粒子 -->
+  <g fill="#8C2C2C">
+    <circle cx="140" cy="220" r="4"/>
+    <circle cx="200" cy="260" r="4"/>
+    <circle cx="280" cy="300" r="4"/>
+    <circle cx="320" cy="180" r="4"/>
+  </g>
+  <g font-family="sans-serif" font-size="12" fill="#444444">
+    <text x="62" y="410">路段畅通度</text>
+  </g>
+  <!-- 右侧：天气卡 + 折线图 -->
+  <rect x="420" y="130" width="340" height="130" rx="8" fill="#FCFAF6" stroke="#444444" stroke-width="1.5"/>
+  <text x="442" y="160" font-family="sans-serif" font-size="15" font-weight="700" fill="#222222">今日天气</text>
+  <circle cx="470" cy="205" r="18" fill="#D88A94" opacity="0.8"/>
+  <text x="470" y="211" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#F7F3ED">☀</text>
+  <text x="510" y="200" font-family="sans-serif" font-size="20" font-weight="700" fill="#222222">26°</text>
+  <text x="510" y="222" font-family="sans-serif" font-size="13" fill="#444444">晴 · 东南风 2 级</text>
+  <text x="680" y="205" font-family="sans-serif" font-size="13" fill="#8C2C2C" text-anchor="end">AQI 42 优</text>
+
+  <rect x="420" y="280" width="340" height="150" rx="8" fill="#FCFAF6" stroke="#444444" stroke-width="1.5"/>
+  <text x="442" y="310" font-family="sans-serif" font-size="15" font-weight="700" fill="#222222">今日车流量</text>
+  <g fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="460,400 500,380 540,392 580,350 620,368 660,330 700,344" stroke="#D88A94"/>
+  </g>
+  <g stroke="#8C2C2C" stroke-width="3" fill="none" stroke-linecap="round">
+    <line x1="460" y1="410" x2="700" y2="410"/>
+  </g>
+  <g font-family="sans-serif" font-size="11" fill="#444444">
+    <text x="460" y="430">6:00</text>
+    <text x="660" y="430">22:00</text>
+  </g>
+
+  <!-- 底部指标 -->
+  <g font-family="sans-serif">
+    <rect x="40" y="460" width="230" height="90" rx="8" fill="#FCFAF6" stroke="#D88A94" stroke-width="1.2"/>
+    <text x="60" y="492" font-size="13" fill="#444444">实时在途车辆</text>
+    <text x="60" y="524" font-size="22" font-weight="700" fill="#8C2C2C">128,940</text>
+    <rect x="290" y="460" width="230" height="90" rx="8" fill="#FCFAF6" stroke="#D88A94" stroke-width="1.2"/>
+    <text x="310" y="492" font-size="13" fill="#444444">平均车速</text>
+    <text x="310" y="524" font-size="22" font-weight="700" fill="#8C2C2C">38.6 km/h</text>
+    <rect x="540" y="460" width="220" height="90" rx="8" fill="#FCFAF6" stroke="#D88A94" stroke-width="1.2"/>
+    <text x="560" y="492" font-size="13" fill="#444444">降雨概率</text>
+    <text x="560" y="524" font-size="22" font-weight="700" fill="#8C2C2C">10%</text>
+  </g>
+</svg>

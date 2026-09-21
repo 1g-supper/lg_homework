@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="林广 · 软件工程专业学生，关注 AI 辅助开发与大语言模型技术。个人作品集网站。">
+  <title>林广 · 个人作品集</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- ======= 背景装饰层（浪纹底纹 + 樱花飘落 + 前景大瓣） ======= -->
+  <div class="bg-scene" aria-hidden="true"></div>
+  <div class="petals-scene" aria-hidden="true"></div>
+  <div class="petals-front" aria-hidden="true"></div>
+
+  <!-- ======= 移动端顶栏 ======= -->
+  <header class="topbar">
+    <button class="menu-btn" type="button" aria-label="打开导航菜单" aria-expanded="false" aria-controls="mobile-drawer">
+      <span class="menu-btn__line"></span>
+      <span class="menu-btn__line"></span>
+      <span class="menu-btn__line"></span>
+    </button>
+    <a class="topbar__brand" href="#hero">林广</a>
+  </header>
+
+  <!-- ======= 移动端抽屉导航 ======= -->
+  <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+  <nav class="drawer" id="mobile-drawer" aria-label="移动端导航" hidden>
+    <div class="drawer__head">
+      <span class="drawer__name">林广</span>
+      <span class="drawer__tagline">AI 辅助开发 · 大语言模型应用</span>
+    </div>
+    <ul class="drawer__nav">
+      <li><a href="#projects">作品</a></li>
+      <li><a href="#about">关于</a></li>
+      <li><a href="#contact">联系</a></li>
+    </ul>
+  </nav>
+
+  <!-- ======= 桌面侧边栏（视觉锚定） ======= -->
+  <div class="layout">
+    <aside class="sidebar" aria-label="个人简介">
+      <div class="sidebar-inner">
+        <div class="identity">
+          <h1 class="identity__name">林广</h1>
+          <p class="identity__tagline">AI 辅助开发 · 大语言模型应用</p>
+        </div>
+
+        <nav class="sidenav" aria-label="全局导航">
+          <a href="#hero">首页</a>
+          <a href="#projects">作品</a>
+          <a href="#about">关于</a>
+          <a href="#contact">联系</a>
+        </nav>
+
+        <div class="skills">
+          <h2 class="skills__title">技能</h2>
+          <div class="skills__list" id="skills-list"></div>
+        </div>
+
+        <footer class="sidebar-foot">
+          <p class="sidebar-foot__copy">© 2026 · 林广</p>
+          <p class="sidebar-foot__city">中国 · 广州</p>
+        </footer>
+      </div>
+    </aside>
+
+    <!-- ======= 主内容滚动区 ======= -->
+    <main class="main">
+
+      <!-- Hero 自我介绍 -->
+      <section class="hero" id="hero">
+        <p class="hero-kicker">个人作品集</p>
+        <h2 class="hero-title">关注 AI 辅助开发<br>与大语言模型技术</h2>
+        <p class="hero-desc">我是林广，软件工程专业在读学生，目前在广州软件学院学习。平时主要使用 Python、Java 和 TypeScript 进行项目开发，也在持续学习前后端开发、数据可视化和 AI 应用构建。</p>
+        <p class="hero-meta">广州软件学院 · 软件工程 · 在读</p>
+        <a class="hero-cta" href="#projects">浏览作品</a>
+      </section>
+
+      <!-- 项目作品展区 -->
+      <section class="section" id="projects">
+        <div class="section-head">
+          <p class="section-kicker">PROJECTS</p>
+          <h2 class="section-title">作品集</h2>
+        </div>
+        <div class="project-list" id="project-list"></div>
+      </section>
+
+      <!-- 关于我 -->
+      <section class="section" id="about">
+        <div class="section-head">
+          <p class="section-kicker">ABOUT</p>
+          <h2 class="section-title">关于我</h2>
+        </div>
+        <div class="about-body">
+          <p>我叫林广，是一名软件工程专业学生，目前主要关注 <strong>AI 辅助开发</strong> 与 <strong>大语言模型技术</strong>。平时主要使用 Python、Java 和 TypeScript 进行项目开发，也在持续学习前后端开发、数据可视化和 AI 应用构建。</p>
+        </div>
+        <ul class="about-points">
+          <li>AI 辅助开发</li>
+          <li>大语言模型应用</li>
+          <li>数据可视化</li>
+        </ul>
+      </section>
+
+      <!-- 联系我 -->
+      <section class="section" id="contact">
+        <div class="section-head">
+          <p class="section-kicker">CONTACT</p>
+          <h2 class="section-title">联系我</h2>
+        </div>
+        <ul class="contact-ways" id="contact-list"></ul>
+      </section>
+
+      <footer class="main-foot">
+        <p>© 2026 林广 · 用心构建每一页</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="assets/data/projects.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

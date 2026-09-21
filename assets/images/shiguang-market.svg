@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="拾光集市二手交易平台界面示意图">
+  <rect width="800" height="600" fill="#F7F3ED"/>
+  <!-- 顶部栏 -->
+  <rect x="40" y="30" width="720" height="56" rx="8" fill="#FCFAF6" stroke="#444444" stroke-width="1.5"/>
+  <text x="66" y="65" font-family="sans-serif" font-size="20" font-weight="700" fill="#8C2C2C">拾光集市</text>
+  <!-- 搜索框 -->
+  <rect x="330" y="46" width="300" height="26" rx="13" fill="#F7F3ED" stroke="#444444" stroke-width="1.2"/>
+  <text x="348" y="63" font-family="sans-serif" font-size="13" fill="#444444" opacity="0.7">搜索 教材 / 数码 / 生活用品</text>
+  <!-- 商品卡片 x3 -->
+  <g>
+    <rect x="60" y="120" width="210" height="300" rx="10" fill="#FCFAF6" stroke="#444444" stroke-width="1.2"/>
+    <rect x="80" y="140" width="170" height="120" rx="6" fill="#D88A94" opacity="0.22"/>
+    <circle cx="165" cy="200" r="26" fill="#D88A94" opacity="0.7"/>
+    <text x="165" y="206" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#F7F3ED">📘</text>
+    <text x="80" y="288" font-family="sans-serif" font-size="15" fill="#222222">高等数学 第七版</text>
+    <text x="80" y="316" font-family="sans-serif" font-size="13" fill="#8C2C2C" font-weight="700">¥ 28</text>
+    <text x="80" y="344" font-family="sans-serif" font-size="12" fill="#444444">九成新 · 有划线</text>
+    <!-- 星级 -->
+    <g fill="#8C2C2C" font-family="sans-serif" font-size="12">
+      <text x="80" y="376">★★★★</text>
+      <text x="152" y="376" opacity="0.35">★</text>
+    </g>
+    <text x="80" y="404" font-family="sans-serif" font-size="12" fill="#444444">卖家信用 4.9</text>
+  </g>
+  <g>
+    <rect x="295" y="120" width="210" height="300" rx="10" fill="#FCFAF6" stroke="#444444" stroke-width="1.2"/>
+    <rect x="315" y="140" width="170" height="120" rx="6" fill="#D88A94" opacity="0.22"/>
+    <circle cx="400" cy="200" r="26" fill="#D88A94" opacity="0.7"/>
+    <text x="400" y="206" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#F7F3ED">🎧</text>
+    <text x="315" y="288" font-family="sans-serif" font-size="15" fill="#222222">蓝牙耳机 无线降噪</text>
+    <text x="315" y="316" font-family="sans-serif" font-size="13" fill="#8C2C2C" font-weight="700">¥ 89</text>
+    <text x="315" y="344" font-family="sans-serif" font-size="12" fill="#444444">使用两月 · 充电盒完好</text>
+    <g fill="#8C2C2C" font-family="sans-serif" font-size="12">
+      <text x="315" y="376">★★★★</text>
+      <text x="387" y="376" opacity="0.35">★</text>
+    </g>
+    <text x="315" y="404" font-family="sans-serif" font-size="12" fill="#444444">卖家信用 4.7</text>
+  </g>
+  <g>
+    <rect x="530" y="120" width="210" height="300" rx="10" fill="#FCFAF6" stroke="#444444" stroke-width="1.2"/>
+    <rect x="550" y="140" width="170" height="120" rx="6" fill="#D88A94" opacity="0.22"/>
+    <circle cx="635" cy="200" r="26" fill="#D88A94" opacity="0.7"/>
+    <text x="635" y="206" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#F7F3ED">🪑</text>
+    <text x="550" y="288" font-family="sans-serif" font-size="15" fill="#222222">人体工学椅 可调</text>
+    <text x="550" y="316" font-family="sans-serif" font-size="13" fill="#8C2C2C" font-weight="700">¥ 150</text>
+    <text x="550" y="344" font-family="sans-serif" font-size="12" fill="#444444">毕业出清 · 自提</text>
+    <g fill="#8C2C2C" font-family="sans-serif" font-size="12">
+      <text x="550" y="376">★★★★</text>
+      <text x="622" y="376" opacity="0.35">★</text>
+    </g>
+    <text x="550" y="404" font-family="sans-serif" font-size="12" fill="#444444">卖家信用 4.8</text>
+  </g>
+  <!-- 底部统计 -->
+  <line x1="60" y1="460" x2="740" y2="460" stroke="#444444" stroke-width="1" opacity="0.35"/>
+  <text x="400" y="510" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#8C2C2C" font-weight="700">300+ 注册用户</text>
+  <text x="400" y="540" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#444444">商品发布 · 关键词检索 · 站内私信 · 信用评分</text>
+</svg>

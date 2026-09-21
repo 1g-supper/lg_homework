@@ -1,0 +1,139 @@
+/* ==========================================================================
+   base.css —— 设计 Token 与排版基础（阶段① ui-ux-pro-max 设计系统落地）
+   和风色板：米白 / 炭墨黑 / 低饱和樱花粉 / 暗武士赤红 / 深炭灰
+   ========================================================================== */
+
+:root {
+  /* ---- 配色 Token（禁止在业务样式中硬编码色值） ---- */
+  --bg: #F7F3ED;            /* 和风米白：页面底色 */
+  --bg-card: #FCFAF6;       /* 卡片浅米白 */
+  --ink: #222222;           /* 武士炭墨黑：正文 */
+  --ink-muted: #4A4440;     /* 次要文字 */
+  --fg-muted: #444444;      /* 深炭灰：次要文字/分割线 */
+  --line: rgba(68, 68, 68, 0.32);   /* 常规分割线 */
+  --line-soft: rgba(68, 68, 68, 0.16);
+
+  --accent: #D88A94;        /* 低饱和樱花粉：小范围点缀 */
+  --accent-soft: rgba(216, 138, 148, 0.14);
+  --accent-deep: #8C2C2C;   /* 暗武士赤红：强调线条/标签描边 */
+  --accent-deep-soft: rgba(140, 44, 44, 0.12);
+
+  /* ---- 字体（完整 fallback 链） ---- */
+  --font-display: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+               "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+
+  /* ---- 字号/字重/行高 ---- */
+  --fs-hero: clamp(2rem, 4.6vw, 3.2rem);
+  --fs-h2: 1.55rem;
+  --fs-body: 1rem;
+  --fs-meta: 0.875rem;
+  --fs-tag: 0.8125rem;
+  --fw-display: 700;
+  --fw-body: 400;
+  --lh-body: 1.85;
+
+  /* ---- 布局 ---- */
+  --sidebar-w: 320px;
+  --gutter: clamp(24px, 5vw, 72px);
+  --radius: 8px;
+
+  /* ---- 动效 ---- */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur: 0.35s;
+
+  /* ---- 装饰图元（樱花 / 明神门 / 浪纹 / 云纹 / 光晕） ---- */
+  --icon-sakura: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='%23D88A94'%3E%3Cpath d='M12 4c.9 1.8 1.4 3.7 1.4 5.5 0 1.2-.3 2.3-.9 3.3-1.2-.3-2.1-1.1-2.5-2.3C9.5 8.7 10 6.6 12 4z'/%3E%3Cpath d='M12 4c-.9 1.8-1.4 3.7-1.4 5.5 0 1.2.3 2.3.9 3.3 1.2-.3 2.1-1.1 2.5-2.3 1-1.4.5-3.5-1.5-5.2.9 1.8 1.4 3.7 1.4 5.5' transform='rotate(72 12 12)'/%3E%3Cpath d='M12 4c-.9 1.8-1.4 3.7-1.4 5.5 0 1.2.3 2.3.9 3.3 1.2-.3 2.1-1.1 2.5-2.3 1-1.4.5-3.5-1.5-5.2' transform='rotate(144 12 12)'/%3E%3Cpath d='M12 4c.9 1.8 1.4 3.7 1.4 5.5 0 1.2-.3 2.3-.9 3.3-1.2-.3-2.1-1.1-2.5-2.3-1-1.4-.5-3.5 1.5-5.2' transform='rotate(216 12 12)'/%3E%3Cpath d='M12 4c.9 1.8 1.4 3.7 1.4 5.5 0 1.2-.3 2.3-.9 3.3-1.2-.3-2.1-1.1-2.5-2.3-1-1.4-.5-3.5 1.5-5.2' transform='rotate(288 12 12)'/%3E%3Ccircle cx='12' cy='12' r='1.6' fill='%238C2C2C'/%3E%3C/g%3E%3C/svg%3E");
+  /* 暗赤红描边樱花（武士主题） */
+  --icon-sakura-ink: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='%23D88A94' stroke='%238C2C2C' stroke-width='0.7'%3E%3Cpath d='M12 4c.9 1.8 1.4 3.7 1.4 5.5 0 1.2-.3 2.3-.9 3.3-1.2-.3-2.1-1.1-2.5-2.3C9.5 8.7 10 6.6 12 4z'/%3E%3Cpath d='M12 4c-.9 1.8-1.4 3.7-1.4 5.5 0 1.2.3 2.3.9 3.3 1.2-.3 2.1-1.1 2.5-2.3 1-1.4.5-3.5-1.5-5.2.9 1.8 1.4 3.7 1.4 5.5' transform='rotate(72 12 12)'/%3E%3Cpath d='M12 4c-.9 1.8-1.4 3.7-1.4 5.5 0 1.2.3 2.3.9 3.3 1.2-.3 2.1-1.1 2.5-2.3 1-1.4.5-3.5-1.5-5.2' transform='rotate(144 12 12)'/%3E%3Cpath d='M12 4c.9 1.8 1.4 3.7 1.4 5.5 0 1.2-.3 2.3-.9 3.3-1.2-.3-2.1-1.1-2.5-2.3-1-1.4-.5-3.5 1.5-5.2' transform='rotate(216 12 12)'/%3E%3Cpath d='M12 4c.9 1.8 1.4 3.7 1.4 5.5 0 1.2-.3 2.3-.9 3.3-1.2-.3-2.1-1.1-2.5-2.3-1-1.4-.5-3.5 1.5-5.2' transform='rotate(288 12 12)'/%3E%3Ccircle cx='12' cy='12' r='1.7' fill='%238C2C2C' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
+  --icon-torii: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 260' fill='none'%3E%3Cpath d='M45 130V250M155 130V250M30 250H70M130 250H170M30 128H170M20 92Q100 50 180 92' stroke='%238C2C2C' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E");
+  --pattern-wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 24'%3E%3Cpath d='M0 12Q7.5 4 15 12T30 12T45 12T60 12T75 12T90 12T105 12T120 12' fill='none' stroke='%23444444' stroke-width='1.6' opacity='0.6'/%3E%3C/svg%3E");
+  /* 云纹 */
+  --pattern-cloud: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 40'%3E%3Cg fill='none' stroke='%23444444' stroke-width='1.5' opacity='0.55'%3E%3Cpath d='M10 28c0-6 4-10 10-10 2-6 8-9 14-6 4-5 12-5 15 1 5-1 9 2 9 7 0 2-1 3-3 4'/%3E%3Cpath d='M10 28h75'/%3E%3C/g%3E%3C/svg%3E");
+  /* 光晕（暗赤红 / 樱花粉，低透明度氛围光） */
+  --glow-deep: radial-gradient(42% 38% at 88% 8%, rgba(140, 44, 44, 0.14), transparent 70%);
+  --glow-sakura: radial-gradient(46% 42% at 6% 92%, rgba(216, 138, 148, 0.16), transparent 70%);
+
+  /* ---- 武士 / 刀剑 图标 ---- */
+  --icon-katana: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 16'%3E%3Cg fill='none' stroke='%23222222' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M2 8H46'/%3E%3Cpath d='M48 4h6l2 4-2 4h-6z' fill='%238C2C2C' stroke='none'/%3E%3Ccircle cx='52' cy='8' r='1.4' fill='%238C2C2C' stroke='none'/%3E%3Cpath d='M46 4l-4 4 4 4'/%3E%3C/g%3E%3C/svg%3E");
+  --icon-slash: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40'%3E%3Cpath d='M2 32Q60 6 120 18T198 8' fill='none' stroke='%238C2C2C' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+  --icon-seal: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect x='6' y='6' width='36' height='36' rx='3' fill='%238C2C2C' opacity='0.82'/%3E%3Cpath d='M16 18h16M16 24h16M16 30h12' stroke='%23FCFAF6' stroke-width='2.4' stroke-linecap='round' opacity='0.9'/%3E%3C/svg%3E");
+  /* 青海波（重叠半圆，日式传统纹样） */
+  --pattern-seigaiha: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 40'%3E%3Cg fill='none' stroke='%238C2C2C' stroke-width='1.4' opacity='0.5'%3E%3Cpath d='M0 40a20 20 0 0 1 40 0M20 40a20 20 0 0 1 40 0M40 40a20 20 0 0 1 40 0M60 40a20 20 0 0 1 40 0'/%3E%3Cpath d='M0 30a10 10 0 0 1 20 0M20 30a10 10 0 0 1 20 0M40 30a10 10 0 0 1 20 0M60 30a10 10 0 0 1 20 0'/%3E%3C/g%3E%3C/svg%3E");
+}
+/* ---- Reset 与基础 ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-body);
+  line-height: var(--lh-body);
+  color: var(--ink);
+  background-color: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-display);
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+/* ---- 滚动条（克制配色） ---- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 5px;
+  border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
