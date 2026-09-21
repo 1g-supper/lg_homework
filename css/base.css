@@ -18,6 +18,10 @@
   --accent-deep: #8C2C2C;   /* 暗武士赤红：强调线条/标签描边 */
   --accent-deep-soft: rgba(140, 44, 44, 0.12);
 
+  /* ---- 半透明面板底色（侧栏 / 移动端顶栏） ---- */
+  --sidebar-bg: rgba(252, 250, 246, 0.55);
+  --topbar-bg: rgba(247, 243, 237, 0.92);
+
   /* ---- 字体（完整 fallback 链） ---- */
   --font-display: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", serif;
   --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",

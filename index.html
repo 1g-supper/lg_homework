@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
+  <script src="js/theme-init.js"></script>
 </head>
 <body>
 
@@ -15,6 +16,17 @@
   <div class="bg-scene" aria-hidden="true"></div>
   <div class="petals-scene" aria-hidden="true"></div>
   <div class="petals-front" aria-hidden="true"></div>
+
+  <!-- ======= 主题切换按钮（浅色 / 深色，localStorage 记忆） ======= -->
+  <button class="theme-toggle" type="button" aria-label="切换到深色主题" aria-pressed="false" title="切换浅色 / 深色主题">
+    <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3L17 7M7 17l-1.7 1.7"/>
+    </svg>
+    <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M20.4 14.2A8.5 8.5 0 1 1 9.8 3.6a7 7 0 0 0 10.6 10.6z"/>
+    </svg>
+  </button>
 
   <!-- ======= 移动端顶栏 ======= -->
   <header class="topbar">

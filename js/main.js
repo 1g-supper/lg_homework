@@ -561,4 +561,35 @@
   window.addEventListener("keydown", function (e) {
     if (e.key === "t" || e.key === "T") cycleTheme();
   });
+
+  /* ---------- 14. 顶部主题切换按钮（浅色 / 深色，localStorage 记忆） ---------- */
+  (function () {
+    var THEME_KEY = "portfolio-theme";
+    var root = document.documentElement;
+    var toggle = document.querySelector(".theme-toggle");
+    if (!toggle) return;
+
+    function applyTheme(dark) {
+      /* 与隐藏彩蛋三主题互斥：切换浅/深时重置为樱花基调，避免变量冲突 */
+      document.body.classList.remove("theme-samurai", "theme-shrine");
+      if (!dark) document.body.classList.add("theme-sakura");
+      root.classList.toggle("theme-dark", dark);
+      document.body.classList.toggle("theme-dark", dark);
+      toggle.classList.toggle("is-dark", dark);
+      toggle.setAttribute("aria-pressed", dark ? "true" : "false");
+      toggle.setAttribute("aria-label", dark ? "切换到浅色主题" : "切换到深色主题");
+    }
+
+    var saved = null;
+    try { saved = localStorage.getItem(THEME_KEY); } catch (e) { saved = null; }
+    applyTheme(saved === "dark");
+
+    toggle.addEventListener("click", function () {
+      var dark = root.classList.contains("theme-dark");
+      applyTheme(!dark);
+      try {
+        localStorage.setItem(THEME_KEY, dark ? "light" : "dark");
+      } catch (e) { /* localStorage 不可用时忽略 */ }
+    });
+  })();
 })();

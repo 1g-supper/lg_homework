@@ -1262,6 +1262,63 @@
   transform: translateX(0);
 }
 
+/* ======= 顶部主题切换按钮（浅色 / 深色，固定右上角） ======= */
+.theme-toggle {
+  position: fixed;
+  top: 18px;
+  right: 20px;
+  z-index: 60;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--bg-card);
+  color: var(--ink-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(34, 34, 34, 0.12);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease),
+              background var(--dur) var(--ease), transform var(--dur) var(--ease),
+              box-shadow var(--dur) var(--ease);
+}
+.theme-toggle:hover {
+  color: var(--accent-deep);
+  border-color: var(--accent-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(140, 44, 44, 0.18);
+}
+.theme-toggle__icon {
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.theme-toggle__icon--sun {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+.theme-toggle__icon--moon {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+.theme-toggle.is-dark .theme-toggle__icon--sun {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+.theme-toggle.is-dark .theme-toggle__icon--moon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+@media (max-width: 767.98px) {
+  .theme-toggle {
+    top: 9px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+  }
+}
+
 /* ---- 三主题变量覆盖 ---- */
 /* 武士模式：暗赤+墨黑，刀痕感，花瓣减少 */
 body.theme-samurai {
@@ -1300,6 +1357,40 @@ body.theme-shrine .identity .torii-mark { color: var(--accent-deep); opacity: 1;
 /* 樱花模式（默认，强化花瓣） */
 body.theme-sakura .petals-front .petal { opacity: 0.4; }
 body.theme-sakura .petal-bank::before { height: 30px; }
+
+/* ---- 深色主题（顶部切换按钮 / 预加载脚本共用；置于三主题之后，优先级更高） ---- */
+html.theme-dark,
+body.theme-dark {
+  --bg: #171512;
+  --bg-card: #201C18;
+  --ink: #EFE8E0;
+  --ink-muted: #C9BDB0;
+  --fg-muted: #A79A8C;
+  --line: rgba(239, 232, 224, 0.26);
+  --line-soft: rgba(239, 232, 224, 0.13);
+  --accent: #E09AA4;
+  --accent-soft: rgba(224, 154, 164, 0.16);
+  --accent-deep: #E26B7A;
+  --accent-deep-soft: rgba(226, 107, 122, 0.18);
+  --sidebar-bg: rgba(32, 28, 24, 0.62);
+  --topbar-bg: rgba(23, 21, 18, 0.92);
+  /* 深色下提亮底纹与光标，保证可见性 */
+  --pattern-wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 24'%3E%3Cpath d='M0 12Q7.5 4 15 12T30 12T45 12T60 12T75 12T90 12T105 12T120 12' fill='none' stroke='%23E8E0D6' stroke-width='1.6' opacity='0.5'/%3E%3C/svg%3E");
+  --pattern-cloud: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 40'%3E%3Cg fill='none' stroke='%23E8E0D6' stroke-width='1.5' opacity='0.42'%3E%3Cpath d='M10 28c0-6 4-10 10-10 2-6 8-9 14-6 4-5 12-5 15 1 5-1 9 2 9 7 0 2-1 3-3 4'/%3E%3Cpath d='M10 28h75'/%3E%3C/g%3E%3C/svg%3E");
+  --icon-katana: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 16'%3E%3Cg fill='none' stroke='%23EFE8E0' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M2 8H46'/%3E%3Cpath d='M48 4h6l2 4-2 4h-6z' fill='%23E26B7A' stroke='none'/%3E%3Ccircle cx='52' cy='8' r='1.4' fill='%23E26B7A' stroke='none'/%3E%3Cpath d='M46 4l-4 4 4 4'/%3E%3C/g%3E%3C/svg%3E");
+}
+/* 深色下的细节适配 */
+html.theme-dark .slash-sweep {
+  background: linear-gradient(115deg,
+    transparent 0%,
+    rgba(226, 107, 122, 0.28) 42%,
+    rgba(239, 232, 224, 0.12) 50%,
+    rgba(224, 154, 164, 0.22) 58%,
+    transparent 100%);
+}
+html.theme-dark .cursor-dot {
+  mix-blend-mode: screen;
+}
 
 /* ======= 降低动效偏好 ======= */
 @media (prefers-reduced-motion: reduce) {
